@@ -3,7 +3,7 @@
 <form #myForm="ngForm" (ngSubmit)="onSubmit()">
   <div>
     Form submitted ? {{ myForm.submitted }} Form valid ? {{ myForm.valid }} Form
-    invalid ? {{ myForm.valid }}
+    invalid ? {{ myForm.invalid }}
   </div>
 
   <!-- email -->
@@ -45,10 +45,10 @@
   <!-- Message d'erreurs de firstname -->
   <div *ngIf="firstname.errors">
     <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
-    <span *ngIf="firstname.errors?.['required']"
+    <span *ngIf="firstname.errors?.['minlength']"
       >La longueur minimale doit être supérieure à 5</span
     >
-    <span *ngIf="firstname.errors?.['required']"
+    <span *ngIf="firstname.errors?.['maxlength']"
       >La longueur maximale doit être inférieure à 30</span
     >
   </div>
@@ -70,10 +70,10 @@
   <!-- Message d'erreurs de title -->
   <div *ngIf="lastname.errors">
     <span *ngIf="lastname.errors?.['required']">Le prénom est requis</span>
-    <span *ngIf="lastname.errors?.['required']"
+    <span *ngIf="lastname.errors?.['minlength']"
       >La longueur minimale doit être supérieure à 5</span
     >
-    <span *ngIf="lastname.errors?.['required']"
+    <span *ngIf="lastname.errors?.['maxlength']"
       >La longueur maximale doit être inférieure à 30</span
     >
   </div>
