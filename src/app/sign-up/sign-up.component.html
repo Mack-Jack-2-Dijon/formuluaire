@@ -21,7 +21,7 @@
   </fieldset>
 
   <!-- Message d'erreurs de contact -->
-  <div *ngIf="email.errors">
+  <div *ngIf="myForm.submitted && email.errors">
     <span *ngIf="email.errors?.['required']">Le champ email est requis</span>
     <span *ngIf="email.errors?.['email']"
       >L'adresse email doit être valide</span
@@ -43,7 +43,7 @@
   </fieldset>
 
   <!-- Message d'erreurs de firstname -->
-  <div *ngIf="firstname.errors">
+  <div *ngIf="myForm.submitted && firstname.errors">
     <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
     <span *ngIf="firstname.errors?.['minlength']"
       >La longueur minimale doit être supérieure à 5</span
@@ -68,7 +68,7 @@
   </fieldset>
 
   <!-- Message d'erreurs de title -->
-  <div *ngIf="lastname.errors">
+  <div *ngIf="myForm.submitted && lastname.errors">
     <span *ngIf="lastname.errors?.['required']">Le prénom est requis</span>
     <span *ngIf="lastname.errors?.['minlength']"
       >La longueur minimale doit être supérieure à 5</span
@@ -93,7 +93,7 @@
   </fieldset>
 
   <!-- Message d'erreurs de password -->
-  <div *ngIf="password.errors">
+  <div *ngIf="myForm.submitted && password.errors">
     <span *ngIf="password.errors?.['required']">Le mot de pass est requis</span>
     <span *ngIf="password.errors?.['required']"
       >La longueur minimale doit être supérieure à 5</span
