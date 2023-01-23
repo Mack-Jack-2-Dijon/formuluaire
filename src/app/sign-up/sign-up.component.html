@@ -1,0 +1,108 @@
+<p>sign-up works!</p>
+<p>email, firstname, lastname, password</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    Form submitted ? {{ myForm.submitted }} Form valid ? {{ myForm.valid }} Form
+    invalid ? {{ myForm.valid }}
+  </div>
+
+  <!-- email -->
+  <fieldset>
+    <label for="email-secondorder">email</label>
+    <input
+      id="email-secondorder"
+      name="email-secondorder"
+      type="email"
+      [(ngModel)]="secondmodel.email"
+      #email="ngModel"
+      required
+      email
+    />
+  </fieldset>
+
+  <!-- Message d'erreurs de contact -->
+  <div *ngIf="email.errors">
+    <span *ngIf="email.errors?.['required']">Le champ email est requis</span>
+    <span *ngIf="email.errors?.['email']"
+      >L'adresse email doit être valide</span
+    >
+  </div>
+  <!-- firstname -->
+  <fieldset>
+    <label for="firstname-secondorder">firstname</label>
+    <input
+      id="firstname-secondorder"
+      name="firstname-secondorder"
+      type="text"
+      [(ngModel)]="secondmodel.firstname"
+      #firstname="ngModel"
+      required
+      minlength="5"
+      maxlength="30"
+    />
+  </fieldset>
+
+  <!-- Message d'erreurs de firstname -->
+  <div *ngIf="firstname.errors">
+    <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
+    <span *ngIf="firstname.errors?.['required']"
+      >La longueur minimale doit être supérieure à 5</span
+    >
+    <span *ngIf="firstname.errors?.['required']"
+      >La longueur maximale doit être inférieure à 30</span
+    >
+  </div>
+  <!-- lastname -->
+  <fieldset>
+    <label for="lastname-secondorder">lastname</label>
+    <input
+      id="lastname-secondorder"
+      name="lastname-secondorder"
+      type="text"
+      [(ngModel)]="secondmodel.lastname"
+      #lastname="ngModel"
+      required
+      minlength="5"
+      maxlength="30"
+    />
+  </fieldset>
+
+  <!-- Message d'erreurs de title -->
+  <div *ngIf="lastname.errors">
+    <span *ngIf="lastname.errors?.['required']">Le prénom est requis</span>
+    <span *ngIf="lastname.errors?.['required']"
+      >La longueur minimale doit être supérieure à 5</span
+    >
+    <span *ngIf="lastname.errors?.['required']"
+      >La longueur maximale doit être inférieure à 30</span
+    >
+  </div>
+  <!-- password -->
+  <fieldset>
+    <label for="password-secondorder">password</label>
+    <input
+      id="password-secondorder"
+      name="password-secondorder"
+      type="text"
+      [(ngModel)]="secondmodel.password"
+      #password="ngModel"
+      required
+      minlength="5"
+      maxlength="30"
+    />
+  </fieldset>
+
+  <!-- Message d'erreurs de password -->
+  <div *ngIf="password.errors">
+    <span *ngIf="password.errors?.['required']">Le mot de pass est requis</span>
+    <span *ngIf="password.errors?.['required']"
+      >La longueur minimale doit être supérieure à 5</span
+    >
+    <span *ngIf="password.errors?.['required']"
+      >La longueur maximale doit être inférieure à 30</span
+    >
+  </div>
+
+  <button type="reset">Restaurer</button>
+  <button type="submit">Sauvegarder</button>
+</form>
